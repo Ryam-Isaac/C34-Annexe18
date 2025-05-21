@@ -6,38 +6,46 @@ import java.util.Vector;
 public class TestVecteursGeneriques {
     public static void main(String[] args) {
         // Création d'un vecteur avec générique
-        Vector<Point> v = new Vector(3);
+        Vector<Point> v = new Vector<>(3); // Notez bien les <Point> ici
 
-        // insertion ds le vecteur en une étape
-        v.add (new Point(3,3));
+        // insertion dans le vecteur en une étape
+        v.add(new Point(3, 3));
 
-        // insertion ds le vecteur en deux étapes
-        Point p = new Point(2,4);
+        // insertion dans le vecteur en deux étapes
+        Point p = new Point(2, 4);
         v.add(p);
 
-        v.add(new Point(5,5));
-
-        v.insertElementAt(new Point(8,5), 0);
-
-        v.insertElementAt(new Point(4,7), 2);
+        v.add(new Point(5, 5));
+        v.insertElementAt(new Point(8, 5), 0);
+        v.insertElementAt(new Point(4, 7), 2);
 
         v.removeElementAt(4);
 
-        //1 afficher la capacité du vecteur
+        System.out.println("Contenu du vecteur :");
+        for (int i = 0; i < v.size(); i++) {
+            System.out.println("Point " + i + " : " + v.get(i));
+        }
 
-        //2 afficher la grandeur du vecteur
+        // 1. Afficher la capacité du vecteur
+        System.out.println("1. Capacité du vecteur : " + v.capacity());
 
-        //3 afficher la valeur de la donnée x du premier élément du vecteur
-        // sans enlever l'élément du vecteur
+        // 2. Afficher la grandeur du vecteur
+        System.out.println("2. Taille (grandeur) du vecteur : " + v.size());
 
-        // afficher la valeur de la valeur y du deuxième Point du vecteur
-        // sans enlever l'élément du vecteur
+        // 3. Afficher la valeur de la donnée x du premier élément du vecteur
+        System.out.println("3. Valeur x du 1er point : " + v.get(0).x);
 
-        // afficher la valeur de la valeur en x du troisième Point du vecteur
-        // sans enlever l'élément du vecteur
+        // 4. Valeur y du 2e Point
+        System.out.println("4. Valeur y du 2e point : " + v.get(1).y);
 
-        // à l'aide d'une boucle, faire le total des valeurs des valeur en x de 
-        // tous les Points du vecteur et l'afficher
+        // 5. Valeur x du 3e Point
+        System.out.println("5. Valeur x du 3e point : " + v.get(2).x);
 
+        // 6. Total des valeurs en x de tous les Points
+        int totalX = 0;
+        for (Point point : v) {
+            totalX += point.x;
+        }
+        System.out.println("6. Total des valeurs en x : " + totalX);
     }
 }
